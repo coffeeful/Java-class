@@ -5,13 +5,11 @@ import java.util.Scanner;
 public class Ex02_IfExample {
 
 	public static void main(String[] args) {
-		
-		
-//		/**
-//		 *  성적 출력하기
-//		 *  자바점수(javaScore)가 60점 이상이면 합격, 아니면 불합격이라고 출력하기
-//		 *  자바점수는 미리 점수를 입력해놓고 실행함.
-//		 */
+	/**
+	 *  성적 출력하기
+	 *  자바점수(javaScore)가 60점 이상이면 합격, 아니면 불합격이라고 출력하기
+	 *  자바점수는 미리 점수를 입력해놓고 실행함.
+	 */
 //	 int javaScore = 100;
 //	 Scanner scanner = new Scanner(System.in);
 //	 System.out.print("점수를 입력하세요: ");
@@ -22,17 +20,13 @@ public class Ex02_IfExample {
 //	 }else {
 //		 System.out.println("불합격"); 
 //	}
-	Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 
-int num1 = scanner.nextInt();
-int num2 = scanner.nextInt();
+		int num1 = scanner.nextInt();
+		int num2 = scanner.nextInt();
 
-System.out.print("");
-int num3 = (num1-num2);
-System.out.println(num3);
-		        
-		        
-		        
-		        
+		System.out.print("");
+		int num3 = (num1-num2);
+		System.out.println(num3);
 	}
 }
