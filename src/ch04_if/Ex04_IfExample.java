@@ -16,10 +16,11 @@ public class Ex04_IfExample {
 		 Scanner scanner = new Scanner(System.in);
 		 System.out.print("점수를 입력하세요: ");
 		 javaScore = scanner.nextInt();
+		 String score= ("");
 		 if(javaScore >100 || javaScore <0 ) {
 			 System.out.println("입력범위를 초과하였습니다.");
 		 }else {
-			 String score= ("");
+			 //String score= ("");
 			 if(javaScore >= 90) {
 				  score= ("A");
 			 }else if(javaScore >= 80) {
@@ -31,9 +32,9 @@ public class Ex04_IfExample {
 			 }else {
 				 score= ("F");
 			}
-			System.out.print(score);
+			//System.out.print(score);
 		 }
-		 
+		 System.out.print(score);
 		 
 		 
 	}
