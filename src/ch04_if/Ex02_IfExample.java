@@ -21,20 +21,15 @@ public class Ex02_IfExample {
 //		 System.out.println("합격");
 //	 }else {
 //		 System.out.println("불합격"); 
-//	} 
-	
+//	}
+	Scanner scanner = new Scanner(System.in);
 
-		
-			
-			 
-				Scanner scanner = new Scanner(System.in);
-		        
-		        int num1 = scanner.nextInt();
-		        int num2 = scanner.nextInt();
-		        
-		        System.out.print("");
-		        int num3 = (num1-num2);
-		        System.out.println(num3);
+int num1 = scanner.nextInt();
+int num2 = scanner.nextInt();
+
+System.out.print("");
+int num3 = (num1-num2);
+System.out.println(num3);
 		        
 		        
 		        
