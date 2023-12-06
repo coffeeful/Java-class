@@ -1,4 +1,4 @@
-package practices;
+package baekJoon.practices;
 import java.util.Scanner;
 
 public class Main_10998문제 {
