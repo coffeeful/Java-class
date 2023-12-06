@@ -41,5 +41,6 @@ public class Ex01_WhileBasic {
             }
             System.out.println("run=false 다음 문장");
         }
+
     }
 }
