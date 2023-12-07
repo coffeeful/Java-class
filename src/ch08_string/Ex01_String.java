@@ -20,18 +20,20 @@ public class Ex01_String {
 
         String word2 = "종료";
 
-        while (run) {System.out.print(">");
+        while (run) {
+            System.out.print(">");
+            word1 = scanner.nextLine();
             if  (word1.equals(word2)) {
 
                 System.out.println();
                 run= false;
 
-                word1 = scanner.nextLine();
-                System.out.println(word1);
+
+
 
             } else if (word1 !=word2) {
 
-                word1 = scanner.nextLine();
+
                 System.out.println(word1);
 
 
