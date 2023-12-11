@@ -14,11 +14,11 @@ public class Ex02_IfExample {
 //	 Scanner scanner = new Scanner(System.in);
 //	 System.out.print("점수를 입력하세요: ");
 //	 javaScore = scanner.nextInt();
-//	
-//	 if(javaScore >= 60){ 
+//
+//	 if(javaScore >= 60){
 //		 System.out.println("합격");
 //	 }else {
-//		 System.out.println("불합격"); 
+//		 System.out.println("불합격");
 //	}
 		Scanner scanner = new Scanner(System.in);
 

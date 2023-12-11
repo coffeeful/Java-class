@@ -39,7 +39,7 @@ public class Ch04_Practice {
 		System.out.println(!bool1); //f
 		System.out.println(bool1 && bool2); //f
 		System.out.println(!(bool1 && bool2)); //t
-		
+		// 결과를 반대로 출력
 		
 		System.out.println("Not 연산 수행 전 :" + bool2);
 		bool2 = !bool2;

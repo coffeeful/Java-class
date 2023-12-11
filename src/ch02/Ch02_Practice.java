@@ -2,7 +2,7 @@ package ch02;
 
 public class Ch02_Practice {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //비교 연산자는 반드시 boolean 타입으로만 가능
 		System.out.println(10 > 5);
 		System.out.println(10 < 5);
 		boolean result = 77<= 60;
