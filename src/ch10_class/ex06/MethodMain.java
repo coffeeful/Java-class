@@ -2,7 +2,7 @@ package ch10_class.ex06;
 
 public class MethodMain {
     public static void main(String[] args) {
-    MethodEx methodEx = new MethodEx();
+    MethodEx methodEx = new MethodEx(); //method는 무조건 같은 타입으로 입력
         System.out.println("호출 전");
         // method1 호출
         methodEx.method1();
@@ -10,7 +10,7 @@ public class MethodMain {
         //method2 호출
         methodEx.method2("10 ");
         String str1 = "오늘은 화요일 ";
-        methodEx.method2(str1);
+        methodEx.method2(str1); //직접 변수에 매개변수를 대입해서 사용 가능
         // method3 호출
        String result = methodEx.method3();
         System.out.println("result = " + result);
