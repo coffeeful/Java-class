@@ -22,7 +22,6 @@ public class Ex02_ArrayBasic {
         int sum = 0;
         for (int i =0; i < numbers1.length; i++) {
             sum = sum + numbers1[i];
-
         }
         int average = 0;
 

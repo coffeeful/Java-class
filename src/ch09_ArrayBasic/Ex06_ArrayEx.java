@@ -7,7 +7,6 @@ public class Ex06_ArrayEx {
 
         for (int i = 0; i < num.length-1; i++) {
             for (int k = i+ 1; k < num.length; k++) {
-
                 if (num[k] < num[i]) {
                     int temp = num[i];
                     num[i] = num[k];
@@ -20,5 +19,23 @@ public class Ex06_ArrayEx {
                 System.out.print(num[i]+", ");
         }
         System.out.println(num[num.length- 1]);
+
+
+
+
+        // temp
+        int a = 10;
+        int b = 20;
+        a = b; // a = 20
+        b = a; // b = 20
+
+        int temp = a; // temp = 10
+        a = b; // a = 20
+        b = temp; // b = 10
+
     }
+
+
+
+
 }

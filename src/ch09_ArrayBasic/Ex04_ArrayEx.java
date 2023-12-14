@@ -14,16 +14,10 @@ public class Ex04_ArrayEx {
 //        System.out.println("숫자 : ");
 //        int input = scanner.nextInt();
 //
-//
 //        for(int i =0; i< num.length; i++){
-//
 //            if(input==num[i]){
-//
-//
 //                System.out.println(input +"은(는) " + i + " 번 인덱스에 있습니다.");
 //            }
-//
-//
 //        }
 
         /**
@@ -49,8 +43,6 @@ public class Ex04_ArrayEx {
             System.out.println(coin[i]+ " 원 동전: " + count + " 개");
             // 나머지를 다음번 계산에 활용
             change = change % coin[i];
-
-
         }
 
     }

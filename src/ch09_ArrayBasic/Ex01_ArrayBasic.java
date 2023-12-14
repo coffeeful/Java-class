@@ -31,7 +31,25 @@ public class Ex01_ArrayBasic {
         //"가", "나", "다", "라"가 들어있는 strings2 배열 선언
         String[] strings2 = {"가", "나", "다", "라"};
 
+        // 배열 : 동일한 타입의 여러개의 값을 넣어줄 때 사용
+        // 1, 2, 3, 4, 5
+        int a = 1;
+        int b = 2;
+        int c = 3;
+        int d = 4;
+        int e = 5;
 
+        int[] nums = {1,2,3,4,5};
+        // 인덱스 : 0부터 시작
+        System.out.println(nums[0]);
+        System.out.println(nums[1]);
+        System.out.println(nums[2]);
+        System.out.println(nums[3]);
+        System.out.println(nums[4]);
+
+        for(int i=0; i<nums.length; i++){
+            System.out.println(nums[i]);
+        }
 
 
     }
