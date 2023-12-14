@@ -40,6 +40,20 @@ public class Ex01_SwitchCase {
 
         }
 
+
+        // switch : 해당하는 값으로 이동
+        int menu = 1;
+        switch(menu){
+            case 1:
+                System.out.println("1번을 선택하셨습니다");
+                break;
+            case 2:
+                System.out.println("2번을 선택하셨습니다");
+                break;
+            case 3:
+                System.out.println("3번을 선택하셨습니다");
+        }
+
     }
 }
 

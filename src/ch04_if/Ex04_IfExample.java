@@ -35,6 +35,8 @@ public class Ex04_IfExample {
 			//System.out.print(score);
 		 }
 		 System.out.print(score);
+
+
 		 
 		 
 	}

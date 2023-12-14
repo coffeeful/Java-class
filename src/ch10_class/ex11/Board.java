@@ -73,14 +73,9 @@ public class Board {
 public Board(){
 
 }
-public Board(Long id, String boardTitle, String boardWirter, String boardContents, int boardHits){
-        this.id = id;
-        this.boardTitle = boardTitle;
-        this.boardWirter = boardWirter;
-        this.boardContents = boardContents;
-        this.boardHits = boardHits;
 
-}
+
+// hits는 기본값을 0으로 하면 되기때문에 생성자에서 제외
 public Board(Long id, String boardTitle, String boardWriter, String boardContents){
         this.id = id;
         this.boardTitle = boardTitle;
@@ -88,7 +83,14 @@ public Board(Long id, String boardTitle, String boardWriter, String boardContent
         this.boardContents = boardContents;
 }
 
-@Override
+
+
+
+
+@Override //이렇게 작성된 toString 메서드는 Board
+    //클래스의 객체를 문자열로 표현할 때 해당 객체의 필드들의 값을 포함하는 형태로 문자열을 반환
+    //예를 들어, System.out.println(Board)를 호출하면
+// Board 객체의 toString 메서드가 호출되어 해당 객체의 정보를 출력
 public String toString() {
     return "Board{" +
             "id=" + id +
@@ -99,7 +101,7 @@ public String toString() {
             '}';
     }
 public void findByid(Long searchId) {
-    if (this.id.equals(searchId                                                        )) {
+    if (this.id.equals(searchId)) {
         this.boardHits++;
         System.out.println("글번호: " + this.id);
         System.out.println("제목: " + this.boardTitle);

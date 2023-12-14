@@ -42,5 +42,13 @@ public class Ex01_WhileBasic {
             System.out.println("run=false 다음 문장");
         }
 
+
+        // while : 횟수가 정해지지 않은 무한반복
+        // while(조건문){실행문;}
+        
+        while(true){
+            System.out.println("A");
+        }
+
     }
 }

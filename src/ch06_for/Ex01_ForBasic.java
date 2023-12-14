@@ -26,6 +26,13 @@ public class Ex01_ForBasic {
         }
         System.out.println("반복문 종료 후 j=" + j);
 
+        // 반복문 for : 조건이 참인 동안 반복실행
+        // for(초기문; 조건문; 증감문){
+        //      실행문;
+        // }
+        for(int i=1; i<=10; i++){
+            System.out.println(i);
+        }
     }
 }
 

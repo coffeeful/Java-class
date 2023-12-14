@@ -33,5 +33,7 @@ public class Ex02_SwitchCase {
                 System.out.println("사전에 없는 단어입니다.");
                 break;
         }
+
+        // default : if문에서 else
     }
 }

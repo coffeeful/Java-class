@@ -27,6 +27,9 @@ public class Ex07_IfExample {
 		}else{
 			System.out.println("해당 안됩니다");
 		}
+
+
+
 //		if(year <=3) {
 //			if(score >=60) {
 //				System.out.println("합격입니다");
