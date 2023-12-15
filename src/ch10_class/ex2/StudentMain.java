@@ -22,5 +22,9 @@ public class StudentMain {
         System.out.println("student2.studentMajor = " + student2.studentMajor);
         System.out.println("student2.studentMobile = " + student2.studentMobile);
 
+        System.out.println(student1);
+        System.out.println(student2);
+
+
     }
 }

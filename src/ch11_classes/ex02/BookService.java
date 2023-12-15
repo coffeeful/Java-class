@@ -23,10 +23,12 @@ public void save(){
 
     System.out.print("도서명을 입력해주세요: ");
     String bookName = scanner.next();
-    System.out.print("저자를 입력해주세요: ");
+
+    System.out.print("저자를 입력하세요: ");
     String bookAuthor = scanner.next();
     System.out.print("가격을 입력하세요: ");
     int bookPrice = scanner.nextInt();
+
     System.out.print("출판사를 입력하세요: ");
     String bookPublisher = scanner.next();
 
@@ -95,7 +97,7 @@ public void save(){
         BookDTO bookDTO = bookRepository.findByTitle(bookTitle);
     }
     public void search(){
-        System.out.println("검색어: ");
+        System.out.print("검색어: ");
         String bookTitle = scanner.next();
         List<BookDTO> bookDTOList = bookRepository.search(bookTitle);
         if (bookDTOList.size() > 0) {
@@ -105,6 +107,37 @@ public void save(){
         } else{
             System.out.println("검색 결과가 없습니다!");
             // bookDTOList.size() == 0 -> 결과가 없다.
+        }
+    }
+    public void update(){
+        // 수정할 id를 입력받음
+        // 해당 id 도서가 있다면 수정할 가격을 입력받고 수정 처리
+        // 없으면 없다고 출력
+        System.out.print("도서조회 id: ");
+        Long id = scanner.nextLong();
+        BookDTO bookDTO = bookRepository.findById(id);
+        if ( bookDTO != null){
+            System.out.print("수정할 가격: ");
+            int bookPrice = scanner.nextInt();
+            boolean updateResult = bookRepository.update(id, bookPrice);
+            if (updateResult){
+                System.out.println("수정 성공");
+            } else {
+                System.out.println("수정 실패");
+            }
+        }else {
+            System.out.println("해당하는 도서 정보를 찾을수 없습니다.");
+        }
+
+    }
+    public void delete(){
+        System.out.println("삭제할 id: ");
+        Long id = scanner.nextLong();
+        boolean result = bookRepository.delete(id);
+        if (result) {
+            System.out.println("삭제 성공");
+        }else {
+            System.out.println("삭제 실패");
         }
     }
 }

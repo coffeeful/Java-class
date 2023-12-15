@@ -14,6 +14,11 @@ public class StudentMain {
         //매개변수 3개 있는 생성자로 객체 선언
         Student student4 = new Student("이름3", "경영학","010-1234-5678" );
 
+        // 생성자는 객체가 생성될 때만 호출
+        // new 클래스이름(매개변수);
+
+
+
 
     }
 }

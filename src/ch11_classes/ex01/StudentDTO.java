@@ -69,6 +69,11 @@ public class StudentDTO {
                 ", studentMobile='" + studentMobile + '\'' +
                 '}';
     }
+    
+    // DTO : 단순히 데이터를 옮기기 위한 객체를 생성하는 용도만 만드는 클래스
+    // Main : 실행 시 무조건 Main클래스의 main메소드 실행, 화면에 보여지는 부분
+    // Repsitory : 데이터를 옮기는 DTO를 리스트로 저장하는 클래스
+    // Service : Main에서 사용할 기능들(메소드)를 모아놓은 클래스
 }
 
 
