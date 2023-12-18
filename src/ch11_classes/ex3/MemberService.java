@@ -60,9 +60,9 @@ public class MemberService {
     }
 
     public void login() {
-        System.out.println("이메일: ");
+        System.out.print("이메일: ");
         String memberEmail = scanner.next();
-        System.out.println("비밀번호: ");
+        System.out.print("비밀번호: ");
         String memberPassword = scanner.next();
         MemberDTO loginResult = memberRepository.login(memberEmail, memberPassword);
         if (loginResult != null) {
@@ -76,7 +76,7 @@ public class MemberService {
 
     public void update() {
         if (loginEmail != null) {
-            System.out.println("수정할 전화번호: ");
+            System.out.print("수정할 전화번호: ");
             String mobile = scanner.next();
             boolean result = memberRepository.update(loginEmail, mobile);
             if (result) {
@@ -92,7 +92,7 @@ public class MemberService {
     public void delete() {
         if (loginEmail != null) {
             System.out.println("정말 탈퇴하시겠습니까?");
-            System.out.println("비밀번호: ");
+            System.out.print("비밀번호: ");
             String memberPassword = scanner.next();
             MemberDTO memberDTO = memberRepository.login(loginEmail, memberPassword);
                 if (memberDTO != null) {

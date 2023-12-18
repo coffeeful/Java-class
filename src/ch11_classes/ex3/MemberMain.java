@@ -12,12 +12,6 @@ public class MemberMain {
         // memberService 클래스 객체 선언
         MemberService memberService = new MemberService();
 
-        //기본생성자
-        Member member = new Member();
-        member.setMemberName("이름");
-        member.setMemberEmail("dltjdgus03@gmail.com");
-        member.setMemberPassword("123456");
-        member.setMemberMobile("010-1234-5678");
 
         while (run) {
             System.out.println("-----------------------------------------------------------------------------------------");
@@ -34,32 +28,15 @@ public class MemberMain {
             } else if (selectNo == 3) {
                 // 호출하는 문장 작성
                 memberService.login();
-                System.out.println("로그인을 하세요");
-                System.out.print("이메일을 입력하세요 : ");
-                String memberEmail = scanner.next();
-                System.out.print("비밀번호를 입력하세요: ");
-                String memberPassword = scanner.next();
-                boolean result = member.memberLogin(memberEmail,memberPassword);
-                if (result){
-                    System.out.println("로그인에 성공하였습니다. ");
-                } else {
-                    System.out.println("로그인에 실패하였습니다. ");
-                }
-
-                } else if (selectNo == 4) {
+            } else if (selectNo == 4) {
                     memberService.update();
-
-
-                } else if (selectNo == 5) {
+            } else if (selectNo == 5) {
                     memberService.delete();
-                
-                } else if (selectNo == 6) {
+            } else if (selectNo == 6) {
                     memberService.logout();
-                } else if (selectNo == 0) {
+            } else if (selectNo == 0) {
                     run = false;
-
             }
         }
-
     }
 }

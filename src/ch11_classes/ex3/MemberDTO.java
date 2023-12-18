@@ -49,9 +49,10 @@ public class MemberDTO {
     }
     public static Long idvalue = 1L;
     public MemberDTO(String memberEmail, String memberPassword, String memberName, String memberMobile){
-        this.id = idvalue;
+        this.id = idvalue++;
         this.memberEmail = memberEmail;
         this.memberPassword = memberPassword;
+        this.memberName =memberName;
         this.memberMobile = memberMobile;
 
     }
