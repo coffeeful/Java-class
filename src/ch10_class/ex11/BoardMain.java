@@ -39,7 +39,7 @@ public class BoardMain {
             } else if (selectNo == 2) { // 글 조회
                 System.out.print("조회할 글 번호를 입력하세요: ");
                 Long searchid = scanner.nextLong();
-             board.findByid(searchid);
+                board.findByid(searchid);
 
             } else if (selectNo == 3) { //종료
 
