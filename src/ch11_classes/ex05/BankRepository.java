@@ -26,6 +26,15 @@ public class BankRepository {
     public void deposit(){
 
     }
+    public void withdraw(){
+
+    }
+    public void transactionalInfor(){
+
+    }
+    public void accountTransfer(){
+
+    }
 
 
 

@@ -8,8 +8,8 @@ public class AccountDTO {
     private String accountNumber;
 
 
-    private int deposit; //입금액
-    private int withdraw; //출금액
+    private Long deposit; //입금액
+    private Long withdraw; //출금액
 
     public LocalDateTime getNow() {
         return now;
@@ -34,19 +34,19 @@ public class AccountDTO {
     }
 
 
-    public int getDeposit() {
+    public Long getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(int deposit) {
+    public void setDeposit(Long deposit) {
         this.deposit = deposit;
     }
 
-    public int getWithdraw() {
+    public Long getWithdraw() {
         return withdraw;
     }
 
-    public void setWithdraw(int withdraw) {
+    public void setWithdraw(Long withdraw) {
         this.withdraw = withdraw;
     }
 
@@ -61,8 +61,8 @@ public class AccountDTO {
     private String bankingAt; //입출금 발생 시간
 
 
-    public AccountDTO(String accountNumber, int deposit, int withdraw, String bankingAt){
-        this.id = idvalue;
+    public AccountDTO(String accountNumber, Long deposit, Long withdraw, String bankingAt){
+        this.id = idvalue++;
         this.accountNumber = accountNumber;
         this.deposit = deposit;
         this.withdraw = withdraw;

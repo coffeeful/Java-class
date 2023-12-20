@@ -45,14 +45,14 @@ public class BankService {
         String accountNumber = null;
         System.out.println("고객등록을 시작합니다!");
         do {
-        System.out.print("계좌번호: ");
-        accountNumber = scanner.next();
-        checkReslut = bankRepository.accountNumberChelck(accountNumber);
-        if (checkReslut) {
+            System.out.print("계좌번호: ");
+            accountNumber = scanner.next();
+            checkReslut = bankRepository.accountNumberChelck(accountNumber);
+            if (checkReslut) {
             System.out.println("사용 가능한 계좌번호 입니다.");
-        }else {
+            }else {
             System.out.println("이미사용중인 계좌입니다. 다른 계좌번호를 입력해주세요.");
-        }
+            }
         }while (!checkReslut);
 
         System.out.print("고객 이름: ");
@@ -60,12 +60,16 @@ public class BankService {
         System.out.print("비밀번호: ");
         String clientPass = scanner.next();
         System.out.println("고객등록이 완료 되었습니다!");
+        ClientDTO clientDTO = new ClientDTO(clientName, accountNumber, clientPass, clientCreatedAt, 0)
+
+
     }
 
     public void inquiry(){
         System.out.print("계좌번호: ");
         String accountNumber = scanner.next();
         ClientDTO clientDTO = bankRepository.inquiry(accountNumber);
+
         if(clientDTO != null){
             System.out.print("고객님의 잔액은 " + clientDTO.getBalance() +"원 입니다");
         }else {
@@ -75,4 +79,14 @@ public class BankService {
     public  void deposit(){
 
     }
+    public void withdraw(){
+
+    }
+    public void transactionalInfor(){
+
+    }
+    public void accountTransfer(){
+
+    }
+
 }

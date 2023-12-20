@@ -75,7 +75,7 @@ private Long balance; //잔고
         this.accountNumber = accountNumber;
         this.clientPass = clientPass;
         this.clientCreatedAt = clientCreatedAt;
-        this.balance = balance;
+        this.balance = 0L;
     }
 
     @Override

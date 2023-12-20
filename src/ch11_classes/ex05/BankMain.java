@@ -29,13 +29,13 @@ public class BankMain {
                 bankService.deposit();
             } else if (selectNo == 4) {
                 // 호출하는 문장 작성
-                bankService.update();
+                bankService.withdraw();
             } else if (selectNo == 5) {
                 // 호출하는 문장 작성
-                bankService.delete();
+                bankService.transactionalInfor();
             } else if (selectNo == 6) {
                 // 호출하는 문장 작성
-                bankService.search();
+                bankService.accountTransfer();
             } else if (selectNo == 0) {
                 run = false;
 
