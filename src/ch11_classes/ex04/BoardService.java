@@ -123,8 +123,8 @@ public class BoardService {
                     } else {
                         System.out.println("비밀번호가 일치하지 않습니다.");
                     }
-                        System.out.println("해당 게시글이 존재하지않습니다.");
-
+                }else{
+                    System.out.println("해당 게시글이 존재하지않습니다.");
                 }
             }
         public void search () {
@@ -143,8 +143,8 @@ public class BoardService {
     // findAA, search 메서드로 부터 list 데이터를 전달 받아서 출력을 하는 메서드
     private void listprint(List<BoardDTO>boardDTOList){
         for (BoardDTO boardDTO : boardDTOList) {
-            System.out.println("글번호: " +boardDTO.getId()+ "\t" + "글제목: " + boardDTO.getBoardTitle()+ "\t" + "글저자: "
-                    + boardDTO.getBoardWriter()+
+            System.out.println("글번호: " +boardDTO.getId()+ "\t" + "글제목: " + boardDTO.getBoardTitle()+ "\t" + "글내용: "
+                    + boardDTO.getBoardContents()+
                     "\t" + "조회수: " + boardDTO.getBoardHits() +"\t" + "날짜,시간: " + boardDTO.getCreatedAt());
         }
     }

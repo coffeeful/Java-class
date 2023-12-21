@@ -1,23 +1,15 @@
-package ch11_classes.ex05;
+package ch11_classes.ex05_bank;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AccountDTO {
-    LocalDateTime now = LocalDateTime.now();
     private Long id;
     private String accountNumber;
+    private long deposit;
+    private long withdraw;
+    private String bankingAt;
 
-
-    private Long deposit; //입금액
-    private Long withdraw; //출금액
-
-    public LocalDateTime getNow() {
-        return now;
-    }
-
-    public void setNow(LocalDateTime now) {
-        this.now = now;
-    }
     public Long getId() {
         return id;
     }
@@ -25,6 +17,7 @@ public class AccountDTO {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -33,20 +26,19 @@ public class AccountDTO {
         this.accountNumber = accountNumber;
     }
 
-
-    public Long getDeposit() {
+    public long getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(Long deposit) {
+    public void setDeposit(long deposit) {
         this.deposit = deposit;
     }
 
-    public Long getWithdraw() {
+    public long getWithdraw() {
         return withdraw;
     }
 
-    public void setWithdraw(Long withdraw) {
+    public void setWithdraw(long withdraw) {
         this.withdraw = withdraw;
     }
 
@@ -57,23 +49,24 @@ public class AccountDTO {
     public void setBankingAt(String bankingAt) {
         this.bankingAt = bankingAt;
     }
-    public static Long idvalue = 1L;
-    private String bankingAt; //입출금 발생 시간
 
+    private static Long idValue = 1L;
 
-    public AccountDTO(String accountNumber, Long deposit, Long withdraw, String bankingAt){
-        this.id = idvalue++;
+    public AccountDTO() {
+    }
+
+    public AccountDTO(String accountNumber, long deposit, long withdraw) {
+        this.id = idValue++;
         this.accountNumber = accountNumber;
         this.deposit = deposit;
         this.withdraw = withdraw;
-        this.bankingAt = bankingAt;
+        this.bankingAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
     @Override
     public String toString() {
         return "AccountDTO{" +
-                "now=" + now +
-                ", id=" + id +
+                "id=" + id +
                 ", accountNumber='" + accountNumber + '\'' +
                 ", deposit=" + deposit +
                 ", withdraw=" + withdraw +
