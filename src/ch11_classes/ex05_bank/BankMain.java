@@ -1,6 +1,4 @@
-package ch11_classes.ex05;
-
-import ch11_classes.ex04.BoardService;
+package ch11_classes.ex05_bank;
 
 import java.util.Scanner;
 
@@ -23,7 +21,7 @@ public class BankMain {
                 bankService.save();
             } else if (selectNo == 2) {
                 // 호출하는 문장 작성
-                bankService.inquiry();
+                bankService.checkBalance();
             } else if (selectNo == 3) {
                 // 호출하는 문장 작성
                 bankService.deposit();

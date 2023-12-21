@@ -1,25 +1,15 @@
-package ch11_classes.ex05;
+package ch11_classes.ex05_bank;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ClientDTO {
-
-    LocalDateTime now = LocalDateTime.now();
-private Long id;
-private String  clientName; //고객이름
-private String  accountNumber; // 계좌번호
-private int clientPass; // 계좌비밀번호
-private String clientCreatedAt; // 가입일자
-private Long balance; //잔고
-
-
-    public LocalDateTime getNow() {
-        return now;
-    }
-
-    public void setNow(LocalDateTime now) {
-        this.now = now;
-    }
+    private Long id;
+    private String clientName;
+    private String accountNumber;
+    private String clientPass;
+    private String clientCreatedAt;
+    private long balance = 0;
 
     public Long getId() {
         return id;
@@ -45,11 +35,11 @@ private Long balance; //잔고
         this.accountNumber = accountNumber;
     }
 
-    public int getClientPass() {
+    public String getClientPass() {
         return clientPass;
     }
 
-    public void setClientPass(int clientPass) {
+    public void setClientPass(String clientPass) {
         this.clientPass = clientPass;
     }
 
@@ -61,31 +51,35 @@ private Long balance; //잔고
         this.clientCreatedAt = clientCreatedAt;
     }
 
-    public Long getBalance() {
+    public long getBalance() {
         return balance;
     }
 
-    public void setBalance(Long balance) {
+    public void setBalance(long balance) {
         this.balance = balance;
     }
-    public static Long idvalue = 1L;
-    public ClientDTO(String clientName, String accountNumber, int clientPass, String clientCreatedAt, Long balance){
-        this.id = idvalue;
+
+
+    private static Long idValue = 1L;
+
+    public ClientDTO() {
+    }
+
+    public ClientDTO(String clientName, String accountNumber, String clientPass) {
+        this.id = idValue++;
         this.clientName = clientName;
         this.accountNumber = accountNumber;
         this.clientPass = clientPass;
-        this.clientCreatedAt = clientCreatedAt;
-        this.balance = 0L;
+        this.clientCreatedAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
     @Override
     public String toString() {
         return "ClientDTO{" +
-                "now=" + now +
-                ", id=" + id +
+                "id=" + id +
                 ", clientName='" + clientName + '\'' +
                 ", accountNumber='" + accountNumber + '\'' +
-                ", clientPass=" + clientPass +
+                ", clientPass='" + clientPass + '\'' +
                 ", clientCreatedAt='" + clientCreatedAt + '\'' +
                 ", balance=" + balance +
                 '}';
