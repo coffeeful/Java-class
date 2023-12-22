@@ -76,11 +76,33 @@ MemberRepository memberRepository = new MemberRepository();
         }
     }
     public void delete(){
-        if (CommonVariables.loginEmail != null){
+        if (CommonVariables.loginEmail != null) {
             System.out.println("정말 탈퇴하실 건가요?");
             System.out.print("비밀번호: ");
+            String memberpass = scanner.next();
+            MemberDTO memberDTO = memberRepository.login(CommonVariables.loginEmail, memberpass);
+            if (memberDTO != null) {
+                boolean result = memberRepository.delete(CommonVariables.loginEmail);
+                if (result) {
+                    System.out.println("회원탈퇴가 정상적으로 되었습니다!");
+                } else {
+                    System.out.println("탈퇴가 실패하였습니다! 다시 시도해주세요.");
+                }
+            } else {
+                System.out.println("비밀번호가 일치하지 않습니다! 전단계로 돌아갑니다. ");
+            }
+        }else {
+                System.out.println("로그인 해주세요!");
+            }
         }
 
+        public  void logout(){
+        CommonVariables.loginEmail = null;
+            System.out.println("로그아웃 되었습니다.");
+        }
+        public void menu(){
+
+        }
     }
 
-}
+

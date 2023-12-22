@@ -1,5 +1,9 @@
 package ch11_classes.ex06_memberboard.service;
 
+import ch11_classes.ex06_memberboard.common.CommonVariables;
+import ch11_classes.ex06_memberboard.dto.BoardDTO;
+import ch11_classes.ex06_memberboard.repository.BoardRepository;
+
 import java.util.Scanner;
 
 public class MainController {
@@ -34,10 +38,11 @@ public class MainController {
             } else if (selectNo == 6) {
                 memberService.logout();
             } else if (selectNo == 7) {
-
+                boardService.menu();
             } else if (selectNo == 0) {
                 run = false;
             }
+            System.out.println("====== 회원관리 ======");
         }
 
     }

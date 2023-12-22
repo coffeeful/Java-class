@@ -2,6 +2,8 @@ package ch11_classes.ex06_memberboard.repository;
 
 import ch11_classes.ex06_memberboard.common.CommonVariables;
 import ch11_classes.ex06_memberboard.dto.MemberDTO;
+import ch11_classes.ex06_memberboard.service.MemberService;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,4 +57,5 @@ public class MemberRepository {
             }
             return result;
         }
+
     }

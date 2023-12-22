@@ -70,6 +70,10 @@ public class BoardDTO {
         this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss "));
     }
 
+    public void plusHits(){
+        this.boardHits++;
+    }
+
     @Override
     public String toString() {
         return "BoardDTO{" +
