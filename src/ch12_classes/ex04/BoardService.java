@@ -1,6 +1,4 @@
-package ch11_classes.ex04;
-
-import ch10_class.ex11.Board;
+package ch12_classes.ex04;
 
 import java.util.List;
 import java.util.Scanner;
