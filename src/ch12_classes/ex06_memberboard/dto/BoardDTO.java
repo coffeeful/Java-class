@@ -1,4 +1,4 @@
-package ch11_classes.ex06_memberboard.dto;
+package ch12_classes.ex06_memberboard.dto;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

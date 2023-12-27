@@ -1,12 +1,11 @@
-package ch11_classes.ex06_memberboard.dto;
+package ch12_classes.ex06_memberboard.dto;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class CommentDTO {
-
-    private Long id;
-    private String boardId;
+    private Long id; // 댓글번호(자동생성)
+    private Long boardId; // 댓글이 작성된 게시글 번호
     private String commentWriter;
     private String commentContents;
     private String createdAt;
@@ -17,14 +16,6 @@ public class CommentDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getBoardId() {
-        return boardId;
-    }
-
-    public void setBoardId(String boardId) {
-        this.boardId = boardId;
     }
 
     public String getCommentWriter() {
@@ -50,19 +41,34 @@ public class CommentDTO {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
-    public static Long idValue = 1L;
-    public CommentDTO(String boardId, String commentWriter, String commentContents, String createdAt){
+
+    public Long getBoardId() {
+        return boardId;
+    }
+
+    public void setBoardId(Long boardId) {
+        this.boardId = boardId;
+    }
+
+    public CommentDTO() {
+
+    }
+
+    private static Long idValue = 1L;
+
+    public CommentDTO(Long boardId, String commentWriter, String commentContents) {
         this.id = idValue++;
+        this.boardId = boardId;
         this.commentWriter = commentWriter;
         this.commentContents = commentContents;
-        this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"));
+        this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
     @Override
     public String toString() {
         return "CommentDTO{" +
                 "id=" + id +
-                ", boardId='" + boardId + '\'' +
+                ", boardId=" + boardId +
                 ", commentWriter='" + commentWriter + '\'' +
                 ", commentContents='" + commentContents + '\'' +
                 ", createdAt='" + createdAt + '\'' +
