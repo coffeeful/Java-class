@@ -26,6 +26,6 @@ public class InheritanceMain {
 
         // 좌변: 자식 타입의 객체,   우변: 부모클래스 생성자
        // ChildClass childClass1 = new ParentClass();
-        int result = scanner.next
+
     }
 }
