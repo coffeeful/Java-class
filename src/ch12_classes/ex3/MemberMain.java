@@ -1,6 +1,4 @@
-package ch11_classes.ex3;
-
-import ch10_class.ex10.Member;
+package ch12_classes.ex3;
 
 import java.util.Scanner;
 

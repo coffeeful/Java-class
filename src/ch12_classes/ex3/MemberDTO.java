@@ -1,4 +1,4 @@
-package ch11_classes.ex3;
+package ch12_classes.ex3;
 
 public class MemberDTO {
 
