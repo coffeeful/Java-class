@@ -1,5 +1,6 @@
 package miniProject.repository;
 
+import miniProject.common.CommonVariables;
 import miniProject.dto.MemberDTO;
 
 import java.util.ArrayList;
@@ -29,6 +30,28 @@ public class MemberRepository {
 
                 result = false;
             }
+        }
+        return result;
+    }
+    public List<MemberDTO> findAll() {
+        return  memberDTOList;
+    }
+    public boolean update(String memberEmail, String membermobile) {
+        boolean result = false;
+        for (int i = 0; i < memberDTOList.size(); i++) {
+            if (memberEmail.equals(memberDTOList.get(i).getMemberEmail())) {
+                memberDTOList.get(i).setMemberMobile(membermobile);
+            result = true;
+            }
+        }
+        return result;
+    }
+    public boolean delete(String loginemail) {
+        boolean result = false;
+        for (int i = 0; i < memberDTOList.size(); i++) {
+            if (loginemail.equals(memberDTOList.get(i).getMemberEmail()))
+            memberDTOList.remove(i);
+            result = true;
         }
         return result;
     }

@@ -10,6 +10,16 @@ public class MemberDTO {
     private String memberPass;
     private String memberName;
     private String memberMobile;
+    private String catBreed;
+
+    public String getCatBreed() {
+        return catBreed;
+    }
+
+    public void setCatBreed(String catBreed) {
+        this.catBreed = catBreed;
+    }
+
     private String createdAt;
     public Long getId() {
         return id;
@@ -61,7 +71,7 @@ public class MemberDTO {
 
     public static Long idvalue = 1L;
 
-    public MemberDTO(String memberEmail, String memberPass, String memberName, String memberMobile) {
+    public MemberDTO(String memberEmail, String memberPass, String memberName, String memberMobile, String petBreed) {
         this.id = idvalue++;
         this.memberEmail = memberEmail;
         this.memberPass = memberPass;
@@ -78,8 +88,10 @@ public class MemberDTO {
                 ", memberPass='" + memberPass + '\'' +
                 ", memberName='" + memberName + '\'' +
                 ", memberMobile='" + memberMobile + '\'' +
+                ", petBreed='" + catBreed + '\'' +
                 ", createdAt='" + createdAt + '\'' +
                 '}';
     }
 }
+
 

@@ -3,7 +3,6 @@ package miniProject.service;
 
 import miniProject.common.CommonVariables;
 import miniProject.dto.MemberDTO;
-import miniProject.dto.PetDTO;
 import miniProject.repository.MemberRepository;
 
 
@@ -13,7 +12,7 @@ import java.util.Scanner;
 public class MemberService {
 
     static Scanner scanner = new Scanner(System.in);
-   static MemberRepository memberRepository = new MemberRepository();
+    static MemberRepository memberRepository = new MemberRepository();
 
     public static void save() {
         boolean checkResult = false;
@@ -29,7 +28,7 @@ public class MemberService {
             }
         } while (!checkResult);
 
-        System.out.println("이메일: ");
+        System.out.print("이메일: ");
         String memberEmial = scanner.next();
         System.out.print("비밀번호: ");
         String memberPass = scanner.next();
@@ -37,11 +36,9 @@ public class MemberService {
         String memberName = scanner.next();
         System.out.print("전화번호: ");
         String memberMobile = scanner.next();
-        System.out.println("고양이 종류: ");
+        System.out.print("고양이 종류: ");
         String catBreed = scanner.next();
-        MemberDTO memberDTO = new MemberDTO(memberEmial, memberPass,memberName, memberMobile);
-        PetDTO petDTO = new PetDTO(catBreed);
-        memberDTO.setMemberEmail(petDTO.toString());
+        MemberDTO memberDTO = new MemberDTO(memberEmial, memberPass,memberName, memberMobile, catBreed);
         boolean result = memberRepository.save(memberDTO);
         if (result) {
             System.out.println("회원가입 성공!");
@@ -91,8 +88,8 @@ public class MemberService {
         if (CommonVariables.loginEmail != null) {
             System.out.println("정말 탈퇴하실건가요?");
             System.out.print("비밀번호: ");
-            String memberPassword = scanner.next();
-            MemberDTO memberDTO = memberRepository.login(CommonVariables.loginEmail, memberPassword);
+            String memberPass = scanner.next();
+            MemberDTO memberDTO = memberRepository.login(CommonVariables.loginEmail, memberPass);
             if (memberDTO != null) {
                 boolean result = memberRepository.delete(CommonVariables.loginEmail);
                 if (result) {
