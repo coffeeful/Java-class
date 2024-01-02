@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class BoardRepository {
     private static List<BoardDTO> boardDTOList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+
     public boolean save(BoardDTO boardDTO) {
         return boardDTOList.add(boardDTO);
     }
@@ -20,6 +21,7 @@ public class BoardRepository {
     public boolean diary(BoardDTO boardDTO) {
         return boardDTOList.add(boardDTO);
     }
+
     public BoardDTO findById(Long id) {
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (id.equals(boardDTOList.get(i).getId())) {
@@ -30,10 +32,10 @@ public class BoardRepository {
     }
 
     public boolean update(Long id, String catTitle, String catContents) {
-        for (int i = 0; i < boardDTOList.size(); i++) {
-            if (id.equals(boardDTOList.get(i).getId())) {
-            boardDTOList.get(i).setCatTitle(catTitle);
-            boardDTOList.get(i).setCatContents(catContents);
+        for (BoardDTO boardDTO : boardDTOList) {
+            if (id.equals(boardDTO.getId())) {
+                boardDTO.setCatTitle(catTitle);
+                boardDTO.setCatContents(catContents);
                 return true;
             }
         }
@@ -50,5 +52,9 @@ public class BoardRepository {
         return false;
     }
 
-
+    public static boolean canModifyBoard(BoardDTO boardDTO, String catWirther) {
+        // 게시글이 존재하지 않거나 현재 로그인한 사용자가 해당 게시글의 작성자인 경우에만 수정 가능
+        return boardDTO != null && catWirther.equals(boardDTO.getCatWirther());
+    }
 }
+

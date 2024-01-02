@@ -52,13 +52,6 @@ public class BoardDTO {
         this.catContents = catContents;
     }
 
-    public String getcatDiary() {
-        return catWirther;
-    }
-
-    public void setcatDiary(String catDiary) {
-        catDiary = catDiary;
-    }
 
     private String createAt;
 
@@ -104,13 +97,13 @@ public class BoardDTO {
     public static Long idvalue = 1L;
 
     public BoardDTO(String catBreed, String catName, String catAge, String catSex,
-                    String catDiary, String catTitle, String catContents) {
+                    String catWirther, String catTitle, String catContents) {
         this.id = idvalue++;
         this.catBreed = catBreed;
         this.catName = catName;
         CatAge = catAge;
         CatSex = catSex;
-        this.catWirther = catDiary;
+        this.catWirther = catWirther;
         this.catTitle = catTitle;
         this.catContents = catContents;
         this.createAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss "));

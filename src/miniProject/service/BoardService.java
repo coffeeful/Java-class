@@ -12,6 +12,8 @@ import miniProject.repository.CommentRepository;
 import java.util.List;
 import java.util.Scanner;
 
+import static miniProject.repository.BoardRepository.canModifyBoard;
+
 public class BoardService {
     static Scanner scanner = new Scanner(System.in);
     static BoardRepository boardRepository = new BoardRepository();
@@ -60,63 +62,99 @@ public class BoardService {
        }
     }
     public static void findById() {
-        System.out.print("조회 일기 id: ");
+        System.out.print("조회할 일기의 id를 입력하세요: ");
         Long id = scanner.nextLong();
-        boolean result = true;
-        if (result){
-            BoardDTO boardDTO = boardRepository.findById(id);
-            List<CommentDTO> commentDTOList = commentRepository.findAll(id);
+
+        // 해당 id에 해당하는 게시글 조회
+        BoardDTO boardDTO = boardRepository.findById(id);
+
+        if (boardDTO != null) {
+            // 조회된 게시글이 있는 경우
             System.out.println("boardDTO = " + boardDTO);
+
+            // 해당 id에 해당하는 댓글 목록 조회
+            List<CommentDTO> commentDTOList = commentRepository.findAll(id);
             System.out.println("======== 댓글 ========");
-            if (commentDTOList.size() >0) {
-                for (CommentDTO commentDTO: commentDTOList) {
+
+            if (!commentDTOList.isEmpty()) {
+                // 댓글이 있는 경우 출력
+                for (CommentDTO commentDTO : commentDTOList) {
                     System.out.println("작성댓글 = " + commentDTO);
                 }
-            }else {
-            System.out.println("작성된 댓글이 없습니다.");
-            }System.out.println("댓글을 작성하시려면 1번을 입력해주세요.");
+            } else {
+                // 댓글이 없는 경우 메시지 출력
+                System.out.println("작성된 댓글이 없습니다.");
+            }
+
+            // 댓글을 작성할지 메인 메뉴로 돌아갈지 선택
+            System.out.println("댓글을 작성하시려면 1번을 입력해주세요.");
             System.out.println("메인메뉴로 돌아가려면 2번을 입력해주세요.");
             System.out.print("입력> ");
             int selectNo = scanner.nextInt();
+
             if (selectNo == 1) {
+                // 댓글 작성
                 System.out.print("댓글 내용: ");
                 String commentContents = scanner.next();
-                String commentWriter = "작성자 id: ";
+                String commentWriter = "작성자 id: ";  // 실제 사용자 정보에 따라 동적으로 설정
                 CommentDTO commentDTO = new CommentDTO(id, commentWriter, commentContents);
                 boolean commentResult = commentRepository.save(commentDTO);
+
                 if (commentResult) {
-                    System.out.println("댓글작성 성공");
+                    System.out.println("댓글 작성 성공");
                 } else {
-                    System.out.println("댓글작성 실패");
+                    System.out.println("댓글 작성 실패");
                 }
             } else if (selectNo == 2) {
+                // 메인 메뉴로 돌아가기
                 System.out.println("메인 메뉴로 돌아갑니다.");
+            } else {
+                // 잘못된 선택일 경우 메시지 출력
+                System.out.println("잘못된 선택입니다.");
             }
         } else {
-            System.out.println("요청하신 게시글은 존재하지 않습니다!");
+            // 해당 id에 해당하는 게시글이 없는 경우
+            System.out.println("요청하신 일기는 존재하지 않습니다!");
         }
-        }
+    }
 
     public static void update() {
-        System.out.print("수정 id: ");
+        System.out.print("수정할 일기의 id를 입력하세요: ");
         Long id = scanner.nextLong();
+
+        // 입력한 id에 해당하는 게시글을 데이터베이스에서 조회
         BoardDTO boardDTO = boardRepository.findById(id);
-        if (boardDTO != null&& CommonVariables.loginEmail.equals(boardDTO.getCatWirther())) {
+
+        if (canModifyBoard(boardDTO)) {
             System.out.print("수정 제목: ");
             String catTitle = scanner.next();
             System.out.print("수정 내용: ");
             String catContents = scanner.next();
-            boolean result = boardRepository.update(id, catTitle, catContents);
-            if (result) {
+
+            // 게시글을 수정하고 그 결과에 따라 메시지 출력
+            if (boardRepository.update(id, catTitle, catContents)) {
                 System.out.println("수정 완료!");
             } else {
                 System.out.println("수정 실패!");
             }
-        } else if (!CommonVariables.loginEmail.equals(boardDTO.getCatWirther())){
-            System.out.println("작성자만 수정 가능합니다.");
-        } else if (boardDTO ==null) {
-            System.out.println("요청하신 일기는 존재하지 않습니다!");
         }
+    }
+
+    // 게시글 수정 권한이 있는지 확인하는 메서드
+    private static boolean canModifyBoard(BoardDTO boardDTO) {
+        if (boardDTO == null) {
+            // 조회된 게시글이 존재하지 않는 경우
+            System.out.println("요청하신 일기는 존재하지 않습니다!");
+            return false;
+        }
+
+        if (!CommonVariables.loginEmail.equals(boardDTO.getCatWirther())) {
+            // 로그인한 사용자가 해당 게시글의 작성자가 아닌 경우
+            System.out.println("작성자만 수정 가능합니다.");
+            return false;
+        }
+
+        return true;
     }
     public static void delete() {
         System.out.print("삭제할 id: ");
